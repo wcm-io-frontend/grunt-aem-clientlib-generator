@@ -42,6 +42,7 @@ module.exports = function(grunt) {
 
     function normalizePattern(obj) {
       var res = _.clone(obj);
+      var isArray = _.isArray(obj);
 
       // convert simplest way
       if (_.isString(res)) {
@@ -56,7 +57,7 @@ module.exports = function(grunt) {
       res.options = {};
 
       ["cwd", "expand", "flatten", "filter"].forEach(function(prop){
-        if (!_.isUndefined(obj[prop])) {
+        if (!isArray && !_.isUndefined(obj[prop])) {
           res.options[prop] = obj[prop];
         } else if (!_.isUndefined(options[prop])) {
           res.options[prop] = options[prop];
