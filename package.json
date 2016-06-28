@@ -32,8 +32,8 @@
   ],
   "main": "tasks/clientlib.js",
   "dependencies": {
-    "lodash": "^4.6.1",
-    "aem-clientlib-generator": "https://github.com/wcm-io-frontend/aem-clientlib-generator"
+    "lodash": "^4.13.1",
+    "aem-clientlib-generator": "^1.0.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
