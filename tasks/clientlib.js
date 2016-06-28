@@ -32,6 +32,7 @@ module.exports = function(grunt) {
     var options        = this.options({
       flatten: true,
       expand: true,
+      filter: "isFile",
       clientLibRoot: "./"
     });
 
@@ -54,7 +55,7 @@ module.exports = function(grunt) {
       }
       res.options = {};
 
-      ["cwd", "expand", "flatten"].forEach(function(prop){
+      ["cwd", "expand", "flatten", "filter"].forEach(function(prop){
         if (!_.isUndefined(obj[prop])) {
           res.options[prop] = obj[prop];
         } else if (!_.isUndefined(options[prop])) {

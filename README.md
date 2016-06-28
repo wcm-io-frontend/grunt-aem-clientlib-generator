@@ -117,6 +117,7 @@ will be overridden.
   * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)
   * `flatten` `{Boolean}` removes the path component from source, keep the filename (default: true)
+  * `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
 
 ```javascript
 clientlib: {
@@ -141,6 +142,7 @@ global options. `cwd`, `expand` and `flatten` will also be used for all asset co
   * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)
   * `flatten` `{Boolean}` removes the path component from source, keep the filename
+  * `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
 
 ```javascript
 clientlib: {
@@ -166,6 +168,7 @@ Asset options will override global and task properties (if defined).
   * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)
   * `flatten` `{Boolean}` removes the path component from source, keep the filename
+  * `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
   * `base` `{String}` subpath under clientlib folder where the assets should be copied to (default: asset key, e.g. for
   asset configuration "js" is the base folder "js/"; use "." to copy files into the clientlib base)
   * `src` `{String|Array<String>}` globbing patterns for filename expansion
