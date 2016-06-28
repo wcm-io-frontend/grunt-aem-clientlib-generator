@@ -1,0 +1,6 @@
+#base=js
+
+beta.js
+delta.js
+libs/mylib.js
+app.js
