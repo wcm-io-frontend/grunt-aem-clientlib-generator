@@ -1,6 +1,6 @@
 # grunt-aem-clientlib-generator
 
-A [Grunt](http://gruntjs.com/) plugin wrapper for {{aem-clientlib-generator}}.
+A [Grunt](http://gruntjs.com/) plugin wrapper for [aem-clientlib-generator](https://github.com/wcm-io-frontend/aem-clientlib-generator).
 
 
 ## Installation
