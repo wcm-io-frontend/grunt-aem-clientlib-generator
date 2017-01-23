@@ -76,6 +76,8 @@ module.exports = function(grunt) {
         "dependencies": [
           "test.base.apps.mainapp"    // define clientlib dependency
         ],
+        "cssProcessor": ["default:none", "min:none"], // disable minification
+        "jsProcessor": ["default:none", "min:gcc"], // using google closure compiler instead of YUI for minification
 
         // example for copy & rename (for a single file)
         "js": {

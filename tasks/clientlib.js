@@ -26,10 +26,13 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("clientlib", "Generates all necessary files for AEM ClientLibs", function() {
 
     var done = this.async();
-    var clientLibEmbed = this.data.embed;
-    var clientLibDeps  = this.data.dependencies;
-    var clientLibName  = this.target;
-    var options        = this.options({
+    var clientLibKeys = ["embed", "dependencies", "cssProcessor", "jsProcessor"];
+    var assetDep = {
+      "cssProcessor": "css",
+      "jsProcessor": "css"
+    };
+    var clientLibName = this.target;
+    var options       = this.options({
       flatten: true,
       expand: true,
       filter: "isFile",
@@ -108,10 +111,16 @@ module.exports = function(grunt) {
     var clientLib = {
       path: options.path || options.clientLibRoot,
       name: clientLibName,
-      embed: clientLibEmbed,
-      dependencies: clientLibDeps,
       assets: assets
     };
+
+    clientLibKeys.forEach(function(nodeKey) {
+      if (data.hasOwnProperty(nodeKey)) {
+        if (!assetDep[nodeKey] || assetDep[nodeKey] && data[assetDep[nodeKey]]) {
+          clientLib[nodeKey] = data[nodeKey];
+        }
+      }
+    });
 
     clientlib(clientLib, done);
 

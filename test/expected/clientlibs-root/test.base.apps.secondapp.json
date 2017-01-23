@@ -8,5 +8,13 @@
   ],
   "dependencies": [
     "test.base.apps.mainapp"
+  ],
+  "cssProcessor": [
+    "default:none",
+    "min:none"
+  ],
+  "jsProcessor": [
+    "default:none",
+    "min:gcc"
   ]
 }
