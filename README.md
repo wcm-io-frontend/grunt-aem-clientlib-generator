@@ -62,7 +62,9 @@ grunt.initConfig({
       "dependencies": [
         "test.base.apps.mainapp"    // define clientlib dependency
       ],
-
+      "cssProcessor": ["default:none", "min:none"], // disable minification for CSS
+      "jsProcessor": ["default:none", "min:gcc"], // using google closure compiler instead of YUI for minification
+  
       // example for copy & rename (for a single file)
       "js": {
 
@@ -160,11 +162,15 @@ clientlib: {
 }
 ```
 
-### Asset Options
+### ClientLib Configuration
 
-Asset options will override global and task properties (if defined).
+A ClientLib can be configured for each task with the following properties:
 
-* `js|css]resources` `{Object}` asset configuration properties
+* `embed` `{Array<String>}` array of ClientLib names that should be embedded by AEM (optional)
+* `dependencies` `{Array<String>}` array of other ClientLib names that should be included by AEM (optional)
+* `cssProcessor` `{Array<String>}` array of configuration properties for the ClientLib CSS processor, requires AEM 6.2 (optional)
+* `jsProcessor` `{Array<String>}` array of configuration properties for the ClientLib JS processor, requires AEM 6.2 (optional)  
+* `js|css|resources` `{Object}` asset configuration properties
   * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)
   * `flatten` `{Boolean}` removes the path component from source, keep the filename
@@ -181,6 +187,9 @@ Asset options will override global and task properties (if defined).
 clientlib: {
 
   "your.clientlib.name": {
+    
+    "embed": ["other.clientlib.name"], // AEM embeds this ClientLib
+    "jsProcessor": ["default:none", "min:gcc"], // change the processor for JS minification in AEM
 
     // asset configuration
     "js": {
