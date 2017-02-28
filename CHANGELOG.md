@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+### Fixed
+- fix missing _jsProcessor_ property in generated clientlib configuration file
+- update readme
+
 ## 1.1.0
 
 ### Added

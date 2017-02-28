@@ -1,6 +1,6 @@
 {
   "name": "grunt-aem-clientlib-generator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Grunt task that generates configuration files for AEM ClientLibs and synchronizes assets.",
   "author": {
     "name": "pro!vision GmbH",
