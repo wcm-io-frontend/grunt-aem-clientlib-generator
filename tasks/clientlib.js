@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     var clientLibKeys = ["embed", "dependencies", "cssProcessor", "jsProcessor"];
     var assetDep = {
       "cssProcessor": "css",
-      "jsProcessor": "css"
+      "jsProcessor": "js"
     };
     var clientLibName = this.target;
     var options       = this.options({
