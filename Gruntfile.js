@@ -60,6 +60,12 @@ module.exports = function(grunt) {
           ]
         },
 
+        // create clientLibs in /apps/myapp/clientlibs and allow proxy to /etc.clientlibs/myapp
+        "allowProxy": true,
+
+        // allow URL Fingerprinting via placeholder
+        "longCacheKey": "${project.version}-${buildNumber}",
+
         // collect all CSS files within css directory
         // Important: use globbing only if the files haven't any dependencies to
         // each other. The order can be different between Unix and Windows systems.

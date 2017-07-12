@@ -46,6 +46,12 @@ grunt.initConfig({
         ]
       },
 
+      // create clientLibs in /apps/myapp/clientlibs and allow proxy to /etc.clientlibs/myapp
+      "allowProxy": true,
+
+      // allow URL Fingerprinting via placeholder
+      "longCacheKey": "${project.version}-${buildNumber}",
+
       // collect all CSS files within css directory
       // Important: use globbing only if the files haven't any dependencies to
       // each other. The order can be different between Unix and Windows systems.
@@ -169,7 +175,9 @@ A ClientLib can be configured for each task with the following properties:
 * `embed` `{Array<String>}` array of ClientLib names that should be embedded by AEM (optional)
 * `dependencies` `{Array<String>}` array of other ClientLib names that should be included by AEM (optional)
 * `cssProcessor` `{Array<String>}` array of configuration properties for the ClientLib CSS processor, requires AEM 6.2 (optional)
-* `jsProcessor` `{Array<String>}` array of configuration properties for the ClientLib JS processor, requires AEM 6.2 (optional)  
+* `jsProcessor` `{Array<String>}` array of configuration properties for the ClientLib JS processor, requires AEM 6.2 (optional)
+* `allowProxy` `{Boolean}` allow for Clientlib creation under `/apps/myapp/clientLibs` but enable proxy to `/etc.clientlibs/myapp/clientlibs/mylib` See [AEM 6.3 Documentation](https://docs.adobe.com/docs/en/aem/6-3/develop/the-basics/clientlibs.html#Locating%20a%20Client%20Library%20Folder%20and%20Using%20the%20Proxy%20Client%20Libraries%20Servlet)
+  * `longCacheKey` `{String}` optional string with placeholders to use with URL Fingerprinting, eq. `"${project.version}-${buildNumber}"`
 * `js|css|resources` `{Object}` asset configuration properties
   * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)

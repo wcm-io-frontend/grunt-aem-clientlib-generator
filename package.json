@@ -1,15 +1,21 @@
 {
   "name": "grunt-aem-clientlib-generator",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Grunt task that generates configuration files for AEM ClientLibs and synchronizes assets.",
   "author": {
     "name": "pro!vision GmbH",
     "url": "http://www.pro-vision.de"
   },
-  "contributors": [{
-    "name": "Matthias Hauch",
-    "email": "mhauch@pro-vision.de"
-  }],
+  "contributors": [
+    {
+      "name": "Matthias Hauch",
+      "email": "mhauch@pro-vision.de"
+    },
+    {
+      "name": "Bert-Ulrich Baumann",
+      "email": "bbaumann@pro-vision.de"
+    },
+  ],
   "homepage": "https://github.com/wcm-io-frontend/grunt-aem-clientlib-generator",
   "bugs": {
     "url": "https://github.com/wcm-io-frontend/grunt-aem-clientlib-generator/issues"
@@ -33,7 +39,7 @@
   "main": "tasks/clientlib.js",
   "dependencies": {
     "lodash": "^4.13.1",
-    "aem-clientlib-generator": ">=1.1.0"
+    "aem-clientlib-generator": ">=1.2.2"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

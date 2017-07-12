@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+### Added
+- support for _allowProxy_ in clientLibs configuration (optional in AEM 6.3)
+- support for _longCacheKey_ in clientLibs configuration (optional)
+
 ## 1.1.1
 ### Fixed
 - fix missing _jsProcessor_ property in generated clientlib configuration file
