@@ -69,7 +69,7 @@ grunt.initConfig({
         "test.base.apps.mainapp"    // define clientlib dependency
       ],
       "cssProcessor": ["default:none", "min:none"], // disable minification for CSS
-      "jsProcessor": ["default:none", "min:gcc"], // using google closure compiler instead of YUI for minification
+      "jsProcessor": ["default:none", "min:gcc;compilationLevel=whitespace"], // using google closure compiler instead of YUI for minification
   
       // example for copy & rename (for a single file)
       "js": {
@@ -197,7 +197,7 @@ clientlib: {
   "your.clientlib.name": {
     
     "embed": ["other.clientlib.name"], // AEM embeds this ClientLib
-    "jsProcessor": ["default:none", "min:gcc"], // change the processor for JS minification in AEM
+    "jsProcessor": ["default:none", "min:gcc;compilationLevel=whitespace"], // change the processor for JS minification in AEM
 
     // asset configuration
     "js": {
