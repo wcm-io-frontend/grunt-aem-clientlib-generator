@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+### Changed
+- Update dependency
+
 ## 1.1.2
 ### Added
 - support for _allowProxy_ in clientLibs configuration (optional in AEM 6.3)
