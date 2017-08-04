@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+### Changed
+- Update dependency
+### Added
+- support for _categories_ in clientLibs configuration to overwrite default (clientLib name)
+
 ## 1.1.3
 ### Changed
 - Update dependency
