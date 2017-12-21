@@ -39,7 +39,7 @@
   "main": "tasks/clientlib.js",
   "dependencies": {
     "lodash": "^4.13.1",
-    "aem-clientlib-generator": ">=1.3.0"
+    "aem-clientlib-generator": ">=1.4.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

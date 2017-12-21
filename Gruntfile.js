@@ -122,6 +122,37 @@ module.exports = function(grunt) {
             "resources/**/*.txt"
           ]
         }
+      },
+      "test.base.apps.serializationFormatXML": {
+        options: {
+          cwd: "./test/src/frontend/secondapp"
+        },
+        "serializationFormat": "xml",
+        "categories": [
+          "test.base.apps.six",
+          "test.categorie.in.config"
+        ],
+        "embed": [
+          "test.base.apps.thirdapp"   // this clientlib will be auto embedded in AEM (kind of `merging`)
+        ],
+        "dependencies": "test.base.apps.mainapp",
+        "js": {
+          "src": "js/lib.js",
+          "rename": "secondapp-lib.js"
+        },
+        "css": {
+          base: "style", // changes the `base` from `css` (default) to `style`
+          src: "main.css"
+        },
+        "resources": {
+          cwd: "./test/src/frontend/",
+          base: ".",      // using root from this clientlib
+          flatten: false, // and keep directory structure from src
+          src: [
+            "resources/**",
+            "!resources/**/*.txt"
+          ]
+        }
       }
     }
   });

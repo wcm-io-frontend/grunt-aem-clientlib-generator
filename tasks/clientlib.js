@@ -42,7 +42,6 @@ module.exports = function(grunt) {
     grunt.log.writeln("Start clientlib generator for target: " + this.target);
     grunt.log.writeln("Clientlib Path: " + options.clientLibRoot);
 
-
     function normalizePattern(obj) {
       var res = _.clone(obj);
       var isArray = _.isArray(obj);
@@ -111,7 +110,8 @@ module.exports = function(grunt) {
     var clientLib = {
       path: options.path || options.clientLibRoot,
       name: clientLibName,
-      assets: assets
+      assets: assets,
+      serializationFormat: options.serializationFormat || "json"
     };
 
     clientLibKeys.forEach(function(nodeKey) {

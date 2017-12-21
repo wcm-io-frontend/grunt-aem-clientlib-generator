@@ -26,7 +26,8 @@ grunt.initConfig({
     // define options globally (used for all targets)
     options: {
       clientLibRoot: "./test/result/clientlibs-root", // clientlib root path
-      cwd: "./test/src/frontend"
+      cwd: "./test/src/frontend",
+      "serializationFormat": "json" // use json or xml as output format
     },
 
     // target key will be used as clientlib name
@@ -105,6 +106,37 @@ grunt.initConfig({
           "resources/**/*.txt"
         ]
       }
+    },
+    "test.base.apps.serializationFormatXML": {
+      options: {
+        cwd: "./test/src/frontend/secondapp"
+      },
+      "serializationFormat": "xml", // can be set on individual ClientLibs or globally in clientlib.options
+      "categories": [
+        "test.base.apps.six",
+        "test.categorie.in.config"
+      ],
+      "embed": [
+        "test.base.apps.thirdapp"   // this clientlib will be auto embedded in AEM (kind of `merging`)
+      ],
+      "dependencies": "test.base.apps.mainapp",
+      "js": {
+        "src": "js/lib.js",
+        "rename": "secondapp-lib.js"
+      },
+      "css": {
+        base: "style", // changes the `base` from `css` (default) to `style`
+        src: "main.css"
+      },
+      "resources": {
+        cwd: "./test/src/frontend/",
+        base: ".",      // using root from this clientlib
+        flatten: false, // and keep directory structure from src
+        src: [
+          "resources/**",
+          "!resources/**/*.txt"
+        ]
+      }
     }
   }
 });
@@ -126,6 +158,7 @@ will be overridden.
   * `expand` `{Boolean}` using glob pattern for file searching (default: true)
   * `flatten` `{Boolean}` removes the path component from source, keep the filename (default: true)
   * `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
+  * `serializationFormat` `{String}` Format of clientLib definition, either `xml` or `json`, default `json`
 
 ```javascript
 clientlib: {
@@ -177,19 +210,20 @@ A ClientLib can be configured for each task with the following properties:
 * `cssProcessor` `{Array<String>}` array of configuration properties for the ClientLib CSS processor, requires AEM 6.2 (optional)
 * `jsProcessor` `{Array<String>}` array of configuration properties for the ClientLib JS processor, requires AEM 6.2 (optional)
 * `allowProxy` `{Boolean}` allow for Clientlib creation under `/apps/myapp/clientLibs` but enable proxy to `/etc.clientlibs/myapp/clientlibs/mylib` See [AEM 6.3 Documentation](https://docs.adobe.com/docs/en/aem/6-3/develop/the-basics/clientlibs.html#Locating%20a%20Client%20Library%20Folder%20and%20Using%20the%20Proxy%20Client%20Libraries%20Servlet)
-  * `longCacheKey` `{String}` optional string with placeholders to use with URL Fingerprinting, eq. `"${project.version}-${buildNumber}"`
+* `longCacheKey` `{String}` optional string with placeholders to use with URL Fingerprinting, eq. `"${project.version}-${buildNumber}"`
+* `serializationFormat` `{String}` Format of clientLib definition, either `xml` or `json`, default `json`
 * `js|css|resources` `{Object}` asset configuration properties
-  * `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
-  * `expand` `{Boolean}` using glob pattern for file searching (default: true)
-  * `flatten` `{Boolean}` removes the path component from source, keep the filename
-  * `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
-  * `base` `{String}` subpath under clientlib folder where the assets should be copied to (default: asset key, e.g. for
-  asset configuration "js" is the base folder "js/"; use "." to copy files into the clientlib base)
-  * `src` `{String|Array<String>}` globbing patterns for filename expansion
-  * `rename` `{String|Function}`
-    * if a string is defined, a single `src` will be renamed (ensure that `src` is a string)
-    * if a function is specified it will be used for building the destination path for every source path
-    Important: Keep in mind that the destination path will be used as a relative path to the clientlib base folder.
+* `cwd` `{String}` directory all paths start with; paths are stripped from the beginning
+* `expand` `{Boolean}` using glob pattern for file searching (default: true)
+* `flatten` `{Boolean}` removes the path component from source, keep the filename
+* `filter` `{String|Function}` if string it must be a valid fs.Stats method or a function that is passed the matched `src` filepath (default: `isFile`)
+* `base` `{String}` subpath under clientlib folder where the assets should be copied to (default: asset key, e.g. for
+asset configuration "js" is the base folder "js/"; use "." to copy files into the clientlib base)
+* `src` `{String|Array<String>}` globbing patterns for filename expansion
+* `rename` `{String|Function}`
+  * if a string is defined, a single `src` will be renamed (ensure that `src` is a string)
+  * if a function is specified it will be used for building the destination path for every source path
+  Important: Keep in mind that the destination path will be used as a relative path to the clientlib base folder.
 
 ```javascript
 clientlib: {

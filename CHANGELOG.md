@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0
+### Changed
+- Update dependency
+- Changed version to match corresponding `aem-clientlib-generator`
+### Added
+- support for _serializationFormat_ in clientLibs configuration to enable FileVault XML or JSON (default) output format
+
 ## 1.2.0
 ### Changed
 - Update dependency
