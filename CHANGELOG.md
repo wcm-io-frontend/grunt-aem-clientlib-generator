@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.4.0
+## 1.4.1
 ### Changed
 - Update dependency
 - Changed version to match corresponding `aem-clientlib-generator`
