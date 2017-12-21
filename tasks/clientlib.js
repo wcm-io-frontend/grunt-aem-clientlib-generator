@@ -26,7 +26,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("clientlib", "Generates all necessary files for AEM ClientLibs", function() {
 
     var done = this.async();
-    var clientLibKeys = ["embed", "dependencies", "cssProcessor", "jsProcessor", "allowProxy", "longCacheKey", "categories"];
+    var clientLibKeys = ["embed", "dependencies", "cssProcessor", "jsProcessor", "allowProxy", "longCacheKey", "categories", "serializationFormat"];
     var assetDep = {
       "cssProcessor": "css",
       "jsProcessor": "js"
