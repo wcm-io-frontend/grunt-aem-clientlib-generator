@@ -1,0 +1,18 @@
+version: 1
+
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "daily"
+    allowed_updates:
+      - match:
+          update_type: "security"
+    default_reviewers:
+      - "ifahrentholz"
+      - "bubaumann"
+    default_assignees:
+      - "ifahrentholz"
+      - "bubaumann"
+    default_labels:
+      - "dependencies"
+      - "dependabot"
